@@ -1,0 +1,24 @@
+{
+  "name": "pothos-proto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "print-schema": "node ./printSchema.mjs > ./schema.graphql",
+    "server": "nodemon ./index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@pothos/core": "^3.24.0",
+    "@pothos/plugin-relay": "^3.33.1",
+    "graphql": "^17.0.0-alpha.2",
+    "graphql-yoga": "^3.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
