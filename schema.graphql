@@ -1,9 +1,17 @@
 # @generated
 # run `npm run print-schema` to re-generate this file.
 
-type Query {
+schema {
+  query: Account
+}
+
+type Account {
+  overview: AccountOverview
   transactions: [Transaction]
-  transaction(id: ID!): Transaction
+}
+
+type AccountOverview {
+  balance: String
 }
 
 type Transaction {

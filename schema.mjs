@@ -1,7 +1,9 @@
 import { transactionsResolver, transactionResolver } from "./resolvers.mjs";
+import { accountOverviewResolver } from "./overviewResolver.mjs"
 
 import {
   GraphQLID,
+  GraphQLInt,
   GraphQLList,
   GraphQLNonNull,
   GraphQLObjectType,
@@ -35,6 +37,30 @@ const QueryType = new GraphQLObjectType({
   },
 });
 
+
+const AccountOverViewType = new GraphQLObjectType({
+  name: "AccountOverview",
+  fields: {
+    balance: { type: GraphQLString },
+  },
+});
+
+const AccountType = new GraphQLObjectType({
+  name: "Account",
+  fields: {
+    overview: {
+      type: AccountOverViewType,
+      resolve: accountOverviewResolver,
+    },
+    transactions: {
+      type: new GraphQLList(TransactionType),
+      resolve: transactionsResolver,
+    },
+  },
+});
+
+
+
 export const schema = new GraphQLSchema({
-  query: QueryType,
+  query: AccountType,
 });
